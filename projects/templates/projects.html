@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Шаблон для вызова проектов</title>
+</head>
+<body>
+<h2>Here will be all projects</h2>
+{% for project in projects %}
+    <p>Project id: # {{ project.id }}</p>
+    <h3>Name of project: <a href="{% url 'project' project.id %}">{{ project.title }} </a></h3>
+    <em>{{ project.description }}</em>
+{% end for %}
+</body>
+</html>
