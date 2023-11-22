@@ -1,9 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from .models import Project
 
 
 def projects(request):
-    pass
+    al_projects = Project.objects.all()
+    context = {'projects': al_projects}
+    return render(request, 'projects.html', context)
 
 
-def project(request):
-    pass
+def project(request, pk):
+    project_obj = get_object_or_404(Project, id=pk)
+    tags = project_obj.tags.all()
+
+    return render(request, 'single-project.html', {'project': project_obj, 'tags': tags})

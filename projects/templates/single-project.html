@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For single project</title>
+</head>
+<body>
+<h1>Information about project</h1>
+<h3>Project {{ project.pk }} </h3>
+<p>{{ project.title }}</p>
+<br>
+
+<ul>
+    {% for tag in project.tags.all %}
+    <li>{{ tag.name }}</li>
+    {% endfor %}
+</ul>
+
+<br>
+<em>{{ project.description }}</em>
+</body>
+</html>
