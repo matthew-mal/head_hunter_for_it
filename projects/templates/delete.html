@@ -1,0 +1,9 @@
+{% block content %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <p>Are you sure? "{{ object }}"</p>
+  <a href="{% url 'projects' %}">Cancel</a>
+  <input type="submit" name="" value="Confirm" />
+</form>
+
+{% endblock%}
