@@ -5,9 +5,25 @@
 </head>
 <body>
 <h2>Here will be all projects</h2>
+<div class="hero-section__search">
+    <form id='searchForm' class="form" action="{% url 'projects' %}" method="get">
+        <div class="form__field">
+            <label for="formInput#search">Поиск по проектам </label>
+            <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                   placeholder="Поиск по названию/описанию проекта" value="{{ search_query }}"/>
+        </div>
+
+        <input class="btn btn--sub btn--lg" type="submit" value="Найти"/>
+    </form>
+</div>
 {% for project in projects %}
-    <h3>Name of project: <a href="{% url 'project' project.id %}">{{ project.title }} </a></h3>
-    <em>{{ project.description }}</em>
+<h3>Name of project: <a href="{% url 'project' project.id %}">{{ project.title }} </a></h3>
+<div class="project_tags">
+    {% for tag in project.tags.all %}
+    <a href="{% url 'projects_by_tag' tag.slug %}" class="tag tag--pill tag--main"> {{tag}}</a>
+    {% endfor %}
+</div>
+<em>{{ project.description }}</em>
 {% endfor %}
 
 <br>

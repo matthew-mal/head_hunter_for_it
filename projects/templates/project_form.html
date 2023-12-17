@@ -2,7 +2,13 @@
 <h1>Information about project</h1>
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+    {% for field in form %}
+    <div class="form__field">
+        <label for="formInput#text">{{ field.label }}</label>
+        {{ field }}
+    </div>
+    {% endfor %}
+
     <input type="submit" name="" value="Add project">
 </form>
 

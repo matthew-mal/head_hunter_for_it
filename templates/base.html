@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+
+<body>
+{% include 'navbar.html' %}
+
+{% if messages %}
+
+{% for message in messages %}
+<div class="alert  alert--{{ message.tags }}">
+    <p class="alert__message">{{message}}</p>
+    <button class="alert__close">Закрыть</button>
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+
+{% block content %}
+
+{% endblock content %}
+<div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <h3>nam</h3>
+            <p></p>
+            <ul class="socials">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-telegram"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-menu">
+                <ul class="f-menu">
+                    <li><a href="">Главная</a></li>
+                    <li><a href="">О проекте</a></li>
+                    <li><a href="">Контакты</a></li>
+                    <li><a href="">Блог</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
